@@ -14,6 +14,8 @@ agent-skills/
 │   └── assets/worker-task-template.md                 # 7-Point Worker Task-Spec preamble template
 ├── interaction-driven-animation/                      # 1:1 user touch/gesture tracking, momentum fling (Compose, SwiftUI, Web)
 │   └── SKILL.md
+├── adaptive-ui-checklist/                             # UI that works on every size, foldables, font scale, languages (Compose, SwiftUI, Web)
+│   └── SKILL.md                                       # Rules, size table, sized-test and render verification, handoff checklist
 ├── android/                                           # Master Android & KMP development suite
 │   ├── SKILL.md                                       # Suite router & reference
 │   └── mobile-orchestration-preset.md                 # Pluggable mobile verification commands
@@ -52,6 +54,9 @@ npx skills add hereisderek/derek-agent-skills -g --skill multi-agent-orchestrati
 
 # Gesture-driven animations
 npx skills add hereisderek/derek-agent-skills -g --skill interaction-driven-animation -y
+
+# Adaptive UI checklist (sizes, foldables, font scale)
+npx skills add hereisderek/derek-agent-skills -g --skill adaptive-ui-checklist -y
 
 # Android & KMP complete suite
 npx skills add hereisderek/derek-agent-skills -g --skill android --full-depth -y
