@@ -1,6 +1,6 @@
 # derek-skills (Derek's Agent Skills)
 
-Modular repository and plugin of reusable agent skills: Android/KMP development, multi-agent orchestration, gesture-driven animation, and preferred skills management.
+Modular repository and plugin of reusable agent skills: Android/KMP development, multi-agent orchestration, gesture-driven animation, preferred skills management, and infrastructure host directory.
 
 Built to be loadable either as an individual skill, full bundle, or as a plugin with namespaced sub-categories:
 ```
@@ -11,6 +11,7 @@ Built to be loadable either as an individual skill, full bundle, or as a plugin 
 
 | Syntax | Description | Location |
 | --- | --- | --- |
+| `/derek-skills:hosts` | Infrastructure directory, SSH aliases & live Gist snapshot | `skills/hosts/` |
 | `/derek-skills:skills` | Preferred skills catalog and installer | `skills/skills/` |
 | `/derek-skills:android` | Android & KMP master development suite | `skills/android/` |
 | `/derek-skills:multi-agent-orchestration` | Multi-agent coordination, preambles & delegation | `skills/multi-agent-orchestration/` |
@@ -18,6 +19,15 @@ Built to be loadable either as an individual skill, full bundle, or as a plugin 
 | `/derek-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | `skills/android-design-gallery-and-signing/` |
 | `/derek-skills:adaptive-ui-checklist` | Window size classes, foldables, and adaptive layouts | `skills/adaptive-ui-checklist/` |
 | `/derek-skills:philipp-android-skills` | Philipp Lackner Android & KMP architecture patterns | `skills/philipp-android-skills/` |
+
+---
+
+## Infrastructure Host Directory (`/derek-skills:hosts`)
+
+Contains direct connection details, SSH aliases (`.lab`, `.lab.proxy`, `.oracle.proxy`), IP mappings, and ports for all machines across Home Proxmox VE and Oracle Cloud.
+
+> **Live Infrastructure Snapshot (Gist):**  
+> 🔗 [https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3](https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3)
 
 ---
 
