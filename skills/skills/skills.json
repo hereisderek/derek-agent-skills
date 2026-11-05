@@ -1,0 +1,22 @@
+[
+  {
+    "id": "openspec",
+    "name": "OpenSpec (Fission-AI)",
+    "description": "Spec-driven development (SDD) for AI coding assistants (/opsx:explore, /opsx:propose, /opsx:archive).",
+    "repo": "https://github.com/Fission-AI/openspec",
+    "npm": "npm install -g @fission-ai/openspec@latest",
+    "installType": "npm-or-cli",
+    "installCommand": "npm install -g @fission-ai/openspec@latest",
+    "checkCommand": "command -v openspec"
+  },
+  {
+    "id": "android-skills",
+    "name": "Android Official Skills",
+    "description": "Official Android & KMP engineering skills suite (adaptive, camerax, compose, navigation-3, testing, wear-compose, etc.).",
+    "repo": "https://github.com/android/skills",
+    "npm": "npx --yes skills add android/skills -g --full-depth -y",
+    "installType": "skills-cli",
+    "installCommand": "npx --yes skills add android/skills -g --full-depth -y",
+    "checkPath": "~/.agents/skills/android"
+  }
+]

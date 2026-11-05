@@ -1,63 +1,58 @@
-# agent-skills (General Reusable Skills)
+# derek-skills (Derek's Agent Skills)
 
-Modular repository of reusable agent skills: Android/KMP development, multi-agent orchestration and gesture-driven animation. Built to be completely **framework- and machine-agnostic**—installable individually or as an entire bundle via the `skills` CLI.
+Modular repository and plugin of reusable agent skills: Android/KMP development, multi-agent orchestration, gesture-driven animation, and preferred skills management.
 
-## Repository Structure
-
-```text
-agent-skills/
-├── SKILL.md                                          # Root router for the full collection
-├── README.md                                          # Documentation & installation guides
-├── multi-agent-orchestration/                         # Multi-agent engineering workflow
-│   ├── SKILL.md                                       # Coordinator vs. Worker, Manual/Auto modes, validation delegation
-│   ├── scripts/detect-env.sh                          # Probes Orca, sub-agents, OpenSpec & AgentMemory
-│   └── assets/worker-task-template.md                 # 7-Point Worker Task-Spec preamble template
-├── interaction-driven-animation/                      # 1:1 user touch/gesture tracking, momentum fling (Compose, SwiftUI, Web)
-│   └── SKILL.md
-├── adaptive-ui-checklist/                             # UI that works on every size, foldables, font scale, languages (Compose, SwiftUI, Web)
-│   └── SKILL.md                                       # Rules, size table, sized-test and render verification, handoff checklist
-├── android/                                           # Master Android & KMP development suite
-│   ├── SKILL.md                                       # Suite router & reference
-│   └── mobile-orchestration-preset.md                 # Pluggable mobile verification commands
-├── android-design-gallery-and-signing/                # Material 3 tokens, subtle dev Component Gallery, dynamic colour
-│   ├── SKILL.md
-│   ├── scripts/check-signing-safety.sh                # Verifies shared debug keystore & git-ignored release keys
-│   └── assets/ComponentGalleryTemplate.kt             # Jetpack Compose themed Component Gallery + Dummy Data
-├── philipp-android-skills/                            # Philipp Lackner Android & KMP Architecture Skills
-│   ├── SKILL.md                                       # Architecture router for child skills
-│   ├── android-module-structure/                      # Feature-layered modularization & Gradle conventions
-│   ├── android-presentation-mvi/                      # MVI State/Action/Event & Root/Screen composables
-│   ├── android-navigation/                            # Type-safe Navigation Compose routes & graphs
-│   ├── android-di-koin/                               # Koin dependency injection modules & scoping
-│   ├── android-data-layer/                            # Repositories, Room, Ktor, DTOs & offline-first
-│   ├── android-error-handling/                        # Typed Result values & domain error mapping
-│   ├── android-compose-components/                    # Reusable Compose UI components & design system reuse
-│   ├── android-unit-testing/                          # JUnit 5 + AssertK + Turbine + fake repositories
-│   └── pr-quiz/                                       # Interactive reviewer quizzes for GitHub pull requests
+Built to be loadable either as an individual skill, full bundle, or as a plugin with namespaced sub-categories:
+```
+/derek-skills:<sub category>
 ```
 
-## Installation
+## Sub-Category Commands & Skills
 
-### Install the Full Collection
+| Syntax | Description | Location |
+| --- | --- | --- |
+| `/derek-skills:skills` | Preferred skills catalog and installer | `skills/skills/` |
+| `/derek-skills:android` | Android & KMP master development suite | `skills/android/` |
+| `/derek-skills:multi-agent-orchestration` | Multi-agent coordination, preambles & delegation | `skills/multi-agent-orchestration/` |
+| `/derek-skills:interaction-driven-animation` | 1:1 gesture tracking & momentum flings | `skills/interaction-driven-animation/` |
+| `/derek-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | `skills/android-design-gallery-and-signing/` |
+| `/derek-skills:adaptive-ui-checklist` | Window size classes, foldables, and adaptive layouts | `skills/adaptive-ui-checklist/` |
+| `/derek-skills:philipp-android-skills` | Philipp Lackner Android & KMP architecture patterns | `skills/philipp-android-skills/` |
+
+---
+
+## Preferred Skills Management (`/derek-skills:skills`)
+
+Manages and installs Derek's curated skills into `~/.agents/skills/` and symlinks them into all agent directories (`~/.claude/skills`, `~/.codex/skills`, `~/.gemini/skills`, etc.).
+
+### Current Preferred Skills
+1. **[OpenSpec (Fission-AI)](https://github.com/Fission-AI/openspec)**: Spec-driven development (`npm install -g @fission-ai/openspec@latest`)
+2. **[Android Official Skills](https://github.com/android/skills)**: Google Android skills suite (`npx --yes skills add android/skills -g --full-depth -y`)
+
+### CLI Commands
 ```bash
-npx skills add hereisderek/derek-agent-skills -g --full-depth -y
+# List all preferred skills and install status
+./skills/skills/scripts/manage_skills.sh list
+
+# Install all preferred skills
+./skills/skills/scripts/manage_skills.sh install --all
+
+# Install a specific skill
+./skills/skills/scripts/manage_skills.sh install openspec
+./skills/skills/scripts/manage_skills.sh install android-skills
+
+# Interactively select skills to install
+./skills/skills/scripts/manage_skills.sh select
+
+# Sync symlinks across agent directories
+./skills/skills/scripts/manage_skills.sh sync
 ```
 
-`--full-depth` installs every child skill (and `philipp-android-skills`' nested skills) as its own skill, plus the root router. Without it the CLI installs only the root skill with the children nested inside.
+---
 
-The global rules and the worktree, release and markdown skills are in [hereisderek/agent-kit](https://github.com/hereisderek/agent-kit) (`git clone` and `./install.sh`). Each skill lives in exactly one of the two repos, so installing both does not collide.
+## Installation as a Claude / Agent Plugin
 
-### Install Individual Skills
 ```bash
-# Multi-agent orchestration
-npx skills add hereisderek/derek-agent-skills -g --skill multi-agent-orchestration -y
-
-# Gesture-driven animations
-npx skills add hereisderek/derek-agent-skills -g --skill interaction-driven-animation -y
-
-# Adaptive UI checklist (sizes, foldables, font scale)
-npx skills add hereisderek/derek-agent-skills -g --skill adaptive-ui-checklist -y
-
-# Android & KMP complete suite
-npx skills add hereisderek/derek-agent-skills -g --skill android --full-depth -y
+claude plugin install derek-skills
 ```
+Or symlink into `~/.claude/skills/derek-skills` / `~/.agents/skills/derek-skills`.

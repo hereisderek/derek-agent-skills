@@ -1,21 +1,22 @@
 ---
-name: dereks-agentic-skills
-description: Derek's collection of reusable engineering skills. Use it to route a request to the relevant Android, multi-agent, interaction, or adaptive-UI skill. Worktree, release and document skills live in agent-kit.
+name: derek-skills
+description: Derek's collection of reusable engineering skills and preferred skills manager. Route requests or invoke via `/derek-skills:<sub category>`.
 ---
 
-# Derek's Agentic Skills
+# Derek's Agent Skills (`/derek-skills`)
 
-Use this root skill when the full collection is installed. Route work to the smallest relevant child skill; each child can also be installed independently.
+Modular suite of engineering skills and preferred skills manager for AI agents.
 
-| Request | Child skill |
-| --- | --- |
-| Android or Kotlin Multiplatform development | [android/SKILL.md](android/SKILL.md) |
-| Multi-agent planning, dispatch, validation, or handoff | [multi-agent-orchestration/SKILL.md](multi-agent-orchestration/SKILL.md) |
-| Gesture-driven animation | [interaction-driven-animation/SKILL.md](interaction-driven-animation/SKILL.md) |
-| Any UI change: phone sizes, aspect ratios, tablets, foldables, font scale, languages | [adaptive-ui-checklist/SKILL.md](adaptive-ui-checklist/SKILL.md) |
-| Android design gallery or signing | [android-design-gallery-and-signing/SKILL.md](android-design-gallery-and-signing/SKILL.md) |
-| Android architecture patterns | [philipp-android-skills/SKILL.md](philipp-android-skills/SKILL.md) |
+## Sub-Category Routing (`/derek-skills:<sub category>`)
 
-The worktree workflow, release/CI-CD policy, markdown conversion and the global rules are in [hereisderek/agent-kit](https://github.com/hereisderek/agent-kit), not here.
+| Command / Syntax | Purpose | Skill Location |
+| --- | --- | --- |
+| `/derek-skills:skills` | Preferred skills catalog & installer (OpenSpec, Android skills, etc.) | [skills/skills/SKILL.md](skills/skills/SKILL.md) |
+| `/derek-skills:android` | Master Android & Kotlin Multiplatform suite router | [skills/android/SKILL.md](skills/android/SKILL.md) |
+| `/derek-skills:multi-agent-orchestration` | Multi-agent planning, dispatch, validation, or handoff | [skills/multi-agent-orchestration/SKILL.md](skills/multi-agent-orchestration/SKILL.md) |
+| `/derek-skills:interaction-driven-animation` | 1:1 touch/gesture tracking & momentum flings | [skills/interaction-driven-animation/SKILL.md](skills/interaction-driven-animation/SKILL.md) |
+| `/derek-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | [skills/android-design-gallery-and-signing/SKILL.md](skills/android-design-gallery-and-signing/SKILL.md) |
+| `/derek-skills:adaptive-ui-checklist` | Window size classes, foldables, and dual-pane ergonomics | [skills/adaptive-ui-checklist/SKILL.md](skills/adaptive-ui-checklist/SKILL.md) |
+| `/derek-skills:philipp-android-skills` | Philipp Lackner Android & KMP architecture patterns | [skills/philipp-android-skills/SKILL.md](skills/philipp-android-skills/SKILL.md) |
 
-When a request spans multiple areas, load only the child skills that materially apply. Follow repository-level instructions in `AGENTS.md` when present.
+The worktree workflow, release/CI-CD policy, markdown conversion and global rules live in [hereisderek/agent-kit](https://github.com/hereisderek/agent-kit).
