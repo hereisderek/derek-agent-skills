@@ -62,21 +62,31 @@ Manages and installs Derek's curated skills into `~/.agents/skills/` and symlink
 
 ## Setup & Installation
 
-### Fresh Clone
+### 1. Install Suite + All Recommended Skills in One Command (Recommended)
 ```bash
 git clone --recurse-submodules git@github.com:hereisderek/derek-agent-skills.git
 cd derek-agent-skills
-./scripts/bootstrap.sh
+./scripts/bootstrap.sh --with-preferred
 ```
+This initializes Git submodules, sets up canonical agent symlinks (`~/.agents/skills/derek-skills`), and installs all curated preferred skills (`openspec`, `android-cli`, and `android-skills`) into your agent environment.
 
-### Existing Clone (Submodule & Symlink Setup)
+### 2. Standard Setup (Core Suite Only)
 ```bash
 ./scripts/bootstrap.sh
 ```
 
-### Installation as a Claude / Agent Plugin
+### 3. Installation as a Claude / Agent Plugin
 
 ```bash
 claude plugin install derek-skills
 ```
 Or symlink into `~/.claude/skills/derek-skills` / `~/.agents/skills/derek-skills`.
+
+---
+
+## Project-Aware Skill Suggestions & Update Checks
+
+When loaded by invoking `/derek-skills` or `/derek agentic skill`, the router inspects the workspace directory:
+- **Android / KMP Projects**: Automatically checks for Google's official `android-cli` and `android/skills`. If missing, it prompts you with the command to install them; if already installed, it prompts to check for updates (`android update` or `npx skills update`).
+- **Web / Spec-Driven Projects**: Checks for `openspec`. Prompts to install or update to the latest version.
+- **Universal Setup**: Offers to run `./scripts/bootstrap.sh --with-preferred` to ensure all tooling is in place.

@@ -1,16 +1,32 @@
 #!/usr/bin/env bash
 #
 # bootstrap.sh
-# Initializes derek-agent-skills submodules and configures agent symlinks.
+# Initializes derek-agent-skills submodules, configures agent symlinks,
+# and optionally installs preferred skills (OpenSpec, Android CLI, Android skills).
 #
 # Usage:
-#   ./scripts/bootstrap.sh
+#   ./scripts/bootstrap.sh                    # Setup submodules & canonical symlinks
+#   ./scripts/bootstrap.sh --with-preferred   # Also install all preferred skills
 #
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+INSTALL_PREFERRED=false
+
+for arg in "$@"; do
+    case "$arg" in
+        --with-preferred|--all|-a)
+            INSTALL_PREFERRED=true
+            ;;
+        --help|-h)
+            echo "Usage: $0 [--with-preferred|--all]"
+            echo "  --with-preferred, --all  Also install all curated preferred skills (OpenSpec, Android skills, Android CLI)"
+            exit 0
+            ;;
+    esac
+done
 
 echo "============================================================"
 echo "Bootstrapping derek-agent-skills"
@@ -38,6 +54,13 @@ fi
 if [[ -d "$HOME/.agents" && ! -e "$HOME/agents" && ! -L "$HOME/agents" ]]; then
     ln -s "$HOME/.agents" "$HOME/agents" 2>/dev/null || true
     echo "✓ Created compatibility symlink: ~/agents -> ~/.agents"
+fi
+
+# 4. Optional: Install preferred skills if requested
+if [[ "$INSTALL_PREFERRED" == true ]]; then
+    echo ""
+    echo "--> Installing all preferred skills from catalog..."
+    "${REPO_ROOT}/skills/preferred-skills/scripts/manage_skills.sh" install --all
 fi
 
 echo "============================================================"

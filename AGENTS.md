@@ -22,6 +22,7 @@ derek-agent-skills/
 ├── plugin.json                       # Claude plugin declaration
 ├── .claude-plugin/plugin.json        # Duplicate plugin manifest for Claude
 ├── commands/                         # Slash commands for Claude Code
+│   ├── derek-skills.md
 │   ├── adaptive-ui-checklist.md
 │   ├── android-design-gallery-and-signing.md
 │   ├── android.md

@@ -1,13 +1,55 @@
 ---
 name: derek-skills
-description: Derek's collection of reusable engineering skills, preferred skills manager, and infrastructure host connection directory. Route requests or invoke via `/derek-skills:<sub category>`.
+description: Derek's collection of reusable engineering skills, preferred skills manager, and infrastructure host connection directory. Invoked via `/derek-skills`, `/derek agentic skill`, or sub-category `/derek-skills:<category>`. When loaded, checks current project context and proactively suggests or updates relevant skills.
 ---
 
-# Derek's Agent Skills (`/derek-skills`)
+# Derek's Agent Skills (`/derek-skills`, `/derek agentic skill`)
 
 Modular suite of engineering skills, preferred skills manager, and infrastructure host directory for AI agents.
 
-## Sub-Category Routing (`/derek-skills:<sub category>`)
+---
+
+## 1. Project Context Inspection & Proactive Skill Suggestion (On-Load Hook)
+
+**When this skill is loaded by invoking `/derek-skills`, `/derek agentic skill`, or during agent startup:**  
+The agent **MUST** inspect the active workspace directory and proactively suggest installing or updating the appropriate skills based on the project type:
+
+### A. Android & Kotlin Multiplatform (KMP) Projects
+- **Detection**: Presence of `build.gradle`, `build.gradle.kts`, `settings.gradle`, `settings.gradle.kts`, `gradlew`, or `AndroidManifest.xml`.
+- **Skill Checks & Prompts**:
+  1. **Android CLI (`android-cli`)**:
+     - Check via `command -v android` or checking `~/.agents/skills/android-cli`.
+     - *If NOT installed*: Prompt the user:
+       > "Detected an Android/KMP project. Would you like me to install the official **Android CLI** (`android-cli`)? Run: `npx --yes skills add android/skills -g --skill android-cli -y`"
+     - *If ALREADY installed*: Prompt the user:
+       > "Android CLI is installed. Would you like to check for updates? (`android update` or `npx --yes skills update`)"
+  2. **Official Android Skills Suite (`android-skills`)**:
+     - Check `~/.agents/skills/android`.
+     - *If NOT installed*: Prompt to install via `npx --yes skills add android/skills -g --full-depth -y`.
+     - *If ALREADY installed*: Prompt if an update check is desired.
+  3. **Internal Suite Recommendations**:
+     - Route to [`skills/android/SKILL.md`](skills/android/SKILL.md), [`skills/adaptive-ui-checklist/SKILL.md`](skills/adaptive-ui-checklist/SKILL.md), [`skills/android-design-gallery-and-signing/SKILL.md`](skills/android-design-gallery-and-signing/SKILL.md), [`skills/interaction-driven-animation/SKILL.md`](skills/interaction-driven-animation/SKILL.md), and [`skills/PL Coding Skills Bundle/SKILL.md`](skills/PL%20Coding%20Skills%20Bundle/SKILL.md).
+
+### B. Web, TypeScript, or Spec-Driven Projects
+- **Detection**: Presence of `package.json`, `tsconfig.json`, `pnpm-workspace.yaml`, or specification directories (`specs/`, `openspec/`).
+- **Skill Checks & Prompts**:
+  - **OpenSpec (`openspec`)**:
+    - Check via `command -v openspec`.
+    - *If NOT installed*: Prompt user:
+      > "Detected a web/spec-driven workspace. Install **OpenSpec** for SDD workflows (`/opsx:explore`, `/opsx:propose`)? Run: `npm install -g @fission-ai/openspec@latest`"
+    - *If ALREADY installed*: Prompt if the user wants to update to latest.
+
+### C. One-Command Setup for All Preferred Skills
+To install all preferred skills together (OpenSpec, Android CLI, Android Skills Suite):
+```bash
+./scripts/bootstrap.sh --with-preferred
+# or directly via the manager CLI:
+./skills/preferred-skills/scripts/manage_skills.sh install --all
+```
+
+---
+
+## 2. Sub-Category Routing (`/derek-skills:<sub category>`)
 
 | Command / Syntax | Purpose | Skill Location |
 | --- | --- | --- |

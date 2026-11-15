@@ -10,8 +10,18 @@
     "checkCommand": "command -v openspec"
   },
   {
+    "id": "android-cli",
+    "name": "Android CLI (Google)",
+    "description": "Official Android CLI for device layout inspection, screenshots, UI testing, and emulator control.",
+    "repo": "https://github.com/android/skills",
+    "installType": "script-or-skill",
+    "installCommand": "npx --yes skills add android/skills -g --skill android-cli -y",
+    "checkPath": "~/.agents/skills/android-cli",
+    "checkCommand": "command -v android"
+  },
+  {
     "id": "android-skills",
-    "name": "Android Official Skills",
+    "name": "Android Official Skills Suite",
     "description": "Official Android & KMP engineering skills suite (adaptive, camerax, compose, navigation-3, testing, wear-compose, etc.).",
     "repo": "https://github.com/android/skills",
     "npm": "npx --yes skills add android/skills -g --full-depth -y",
