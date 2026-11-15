@@ -8,7 +8,7 @@ Manage and install Derek's preferred agent skills.
 
 ## What it does
 
-1. Displays Derek's preferred skills catalog (OpenSpec, Android skills, etc.).
+1. Displays Derek's preferred skills catalog: OpenSpec, Android CLI (Google), and android/skills (The Full Suite).
 2. Checks whether each skill is currently installed in `~/.agents/skills` or available on `PATH`.
 3. Offers commands to install all skills, install specific skills, or interactively select which to install.
 4. Ensures all installed skills are automatically symlinked across detected agent directories (`~/.claude/skills`, `~/.codex/skills`, `~/.gemini/skills`, `~/.config/opencode/skills`).

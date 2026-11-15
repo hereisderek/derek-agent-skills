@@ -37,7 +37,8 @@ Manages and installs Derek's curated skills into `~/.agents/skills/` and symlink
 
 ### Current Preferred Skills
 1. **[OpenSpec (Fission-AI)](https://github.com/Fission-AI/openspec)**: Spec-driven development (`npm install -g @fission-ai/openspec@latest`)
-2. **[Android Official Skills](https://github.com/android/skills)**: Google Android skills suite (`npx --yes skills add android/skills -g --full-depth -y`)
+2. **[Android CLI (Google)](https://github.com/android/skills)**: Official Android CLI tool skill (`npx --yes skills add android/skills -g --skill android-cli -y`)
+3. **[android/skills (The Full Suite)](https://github.com/android/skills)**: Google's complete 21+ Android & KMP engineering skills suite (`npx --yes skills add android/skills -g --full-depth -y`)
 
 ### CLI Commands
 ```bash
@@ -49,6 +50,7 @@ Manages and installs Derek's curated skills into `~/.agents/skills/` and symlink
 
 # Install a specific skill
 ./skills/preferred-skills/scripts/manage_skills.sh install openspec
+./skills/preferred-skills/scripts/manage_skills.sh install android-cli
 ./skills/preferred-skills/scripts/manage_skills.sh install android-skills
 
 # Interactively select skills to install

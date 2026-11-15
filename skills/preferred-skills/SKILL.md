@@ -12,8 +12,8 @@ This skill manages Derek's preferred agent skills, tracking their repositories, 
 | Skill Name | Repository | Install Command / NPM | Purpose |
 |---|---|---|---|
 | **OpenSpec (Fission-AI)** | [Fission-AI/openspec](https://github.com/Fission-AI/openspec) | `npm install -g @fission-ai/openspec@latest` | Spec-driven development (SDD) for AI coding assistants (`/opsx:explore`, `/opsx:propose`, `/opsx:archive`) |
-| **Android CLI (Google)** | [android/skills](https://github.com/android/skills) | `npx --yes skills add android/skills -g --skill android-cli -y` | Official Android CLI for device layout inspection, screenshots, UI testing, and emulator control |
-| **Android Official Skills** | [android/skills](https://github.com/android/skills) | `npx --yes skills add android/skills -g --full-depth -y` | Google official Android & KMP engineering skills suite (adaptive, camerax, compose, navigation-3, testing, wear-compose) |
+| **Android CLI (Google)** | [android/skills](https://github.com/android/skills) | `npx --yes skills add android/skills -g --skill android-cli -y` | Official Android CLI skill for device layout inspection, screenshots, UI testing, and emulator control |
+| **android/skills (The Full Suite)** | [android/skills](https://github.com/android/skills) | `npx --yes skills add android/skills -g --full-depth -y` | Google's complete official suite of 21+ Android & KMP skills (adaptive, camerax, compose, navigation-3, testing-setup, r8-analyzer, edge-to-edge, wear-compose, etc.) |
 
 ## Usage Commands
 
