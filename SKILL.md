@@ -18,7 +18,6 @@ Modular suite of engineering skills, preferred skills manager, and infrastructur
 | `/derek-skills:interaction-driven-animation` | 1:1 touch/gesture tracking & momentum flings | [skills/interaction-driven-animation/SKILL.md](skills/interaction-driven-animation/SKILL.md) |
 | `/derek-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | [skills/android-design-gallery-and-signing/SKILL.md](skills/android-design-gallery-and-signing/SKILL.md) |
 | `/derek-skills:adaptive-ui-checklist` | Window size classes, foldables, and dual-pane ergonomics | [skills/adaptive-ui-checklist/SKILL.md](skills/adaptive-ui-checklist/SKILL.md) |
-| `/derek-skills:philipp-android-skills` | Philipp Lackner Android & KMP architecture patterns | [skills/philipp-android-skills/SKILL.md](skills/philipp-android-skills/SKILL.md) |
 
 > **Live Infrastructure Snapshot (Gist):**  
 > 🔗 [https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3](https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3)
