@@ -18,6 +18,7 @@ Built to be loadable either as an individual skill, full bundle, or as a plugin 
 | `/derek-skills:interaction-driven-animation` | 1:1 gesture tracking & momentum flings | `skills/interaction-driven-animation/` |
 | `/derek-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | `skills/android-design-gallery-and-signing/` |
 | `/derek-skills:adaptive-ui-checklist` | Window size classes, foldables, and adaptive layouts | `skills/adaptive-ui-checklist/` |
+| `/derek-skills:pl-coding-skills-bundle` | Philipp Lackner Android & KMP architecture and coding bundle | `skills/PL Coding Skills Bundle/` |
 
 ---
 

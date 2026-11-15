@@ -1,0 +1,3 @@
+[submodule "skills/PL Coding Skills Bundle"]
+	path = skills/PL Coding Skills Bundle
+	url = git@github.com:hereisderek/pl-coding-skills-bundle.git
