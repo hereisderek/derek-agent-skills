@@ -60,7 +60,21 @@ Manages and installs Derek's curated skills into `~/.agents/skills/` and symlink
 
 ---
 
-## Installation as a Claude / Agent Plugin
+## Setup & Installation
+
+### Fresh Clone
+```bash
+git clone --recurse-submodules git@github.com:hereisderek/derek-agent-skills.git
+cd derek-agent-skills
+./scripts/bootstrap.sh
+```
+
+### Existing Clone (Submodule & Symlink Setup)
+```bash
+./scripts/bootstrap.sh
+```
+
+### Installation as a Claude / Agent Plugin
 
 ```bash
 claude plugin install derek-skills
