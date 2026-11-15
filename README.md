@@ -12,7 +12,7 @@ Built to be loadable either as an individual skill, full bundle, or as a plugin 
 | Syntax | Description | Location |
 | --- | --- | --- |
 | `/derek-skills:hosts` | Infrastructure directory, SSH aliases & live Gist snapshot | `skills/hosts/` |
-| `/derek-skills:skills` | Preferred skills catalog and installer | `skills/skills/` |
+| `/derek-skills:preferred-skills` | Preferred skills catalog and installer | `skills/preferred-skills/` |
 | `/derek-skills:android` | Android & KMP master development suite | `skills/android/` |
 | `/derek-skills:multi-agent-orchestration` | Multi-agent coordination, preambles & delegation | `skills/multi-agent-orchestration/` |
 | `/derek-skills:interaction-driven-animation` | 1:1 gesture tracking & momentum flings | `skills/interaction-driven-animation/` |
@@ -31,7 +31,7 @@ Contains direct connection details, SSH aliases (`.lab`, `.lab.proxy`, `.oracle.
 
 ---
 
-## Preferred Skills Management (`/derek-skills:skills`)
+## Preferred Skills Management (`/derek-skills:preferred-skills`)
 
 Manages and installs Derek's curated skills into `~/.agents/skills/` and symlinks them into all agent directories (`~/.claude/skills`, `~/.codex/skills`, `~/.gemini/skills`, etc.).
 
@@ -42,20 +42,20 @@ Manages and installs Derek's curated skills into `~/.agents/skills/` and symlink
 ### CLI Commands
 ```bash
 # List all preferred skills and install status
-./skills/skills/scripts/manage_skills.sh list
+./skills/preferred-skills/scripts/manage_skills.sh list
 
 # Install all preferred skills
-./skills/skills/scripts/manage_skills.sh install --all
+./skills/preferred-skills/scripts/manage_skills.sh install --all
 
 # Install a specific skill
-./skills/skills/scripts/manage_skills.sh install openspec
-./skills/skills/scripts/manage_skills.sh install android-skills
+./skills/preferred-skills/scripts/manage_skills.sh install openspec
+./skills/preferred-skills/scripts/manage_skills.sh install android-skills
 
 # Interactively select skills to install
-./skills/skills/scripts/manage_skills.sh select
+./skills/preferred-skills/scripts/manage_skills.sh select
 
 # Sync symlinks across agent directories
-./skills/skills/scripts/manage_skills.sh sync
+./skills/preferred-skills/scripts/manage_skills.sh sync
 ```
 
 ---

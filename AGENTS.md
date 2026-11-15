@@ -29,6 +29,7 @@ derek-agent-skills/
 │   ├── interaction-driven-animation.md
 │   ├── multi-agent-orchestration.md
 │   ├── pl-coding-skills-bundle.md
+│   ├── preferred-skills.md
 │   └── skills.md
 ├── skills/                           # Individual modular skill directories
 │   ├── adaptive-ui-checklist/
@@ -38,7 +39,7 @@ derek-agent-skills/
 │   ├── interaction-driven-animation/
 │   ├── multi-agent-orchestration/
 │   ├── PL Coding Skills Bundle/      # Git submodule -> hereisderek/pl-coding-skills-bundle
-│   └── skills/                       # Preferred skills manager & catalog
+│   └── preferred-skills/             # Preferred skills manager & catalog
 └── scripts/                          # Operational & automation tooling
     ├── bootstrap.sh                  # One-step submodule & symlink setup
     ├── update-pl-bundle.sh           # Safe update utility for PL Google Drive bundle

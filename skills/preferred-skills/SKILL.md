@@ -1,9 +1,9 @@
 ---
-name: skills
+name: preferred-skills
 description: Preferred skills catalog and installer for Derek's AI agents. Manage, browse, and install curated engineering skills (OpenSpec, Android skills, etc.) with automatic symlinking to universal (~/.agents/skills) and agent-specific directories.
 ---
 
-# Preferred Skills Manager (`/derek-skills:skills`)
+# Preferred Skills Manager (`/derek-skills:preferred-skills`)
 
 This skill manages Derek's preferred agent skills, tracking their repositories, package install commands, and providing one-command installation with universal agent symlinking.
 
@@ -20,20 +20,20 @@ You can run the manager script directly or ask the agent to run it:
 
 ```bash
 # 1. Show the list of preferred skills and their installation status
-./skills/skills/scripts/manage_skills.sh list
+./skills/preferred-skills/scripts/manage_skills.sh list
 
 # 2. Install all preferred skills in the catalog
-./skills/skills/scripts/manage_skills.sh install --all
+./skills/preferred-skills/scripts/manage_skills.sh install --all
 
 # 3. Install a specific preferred skill
-./skills/skills/scripts/manage_skills.sh install openspec
-./skills/skills/scripts/manage_skills.sh install android-skills
+./skills/preferred-skills/scripts/manage_skills.sh install openspec
+./skills/preferred-skills/scripts/manage_skills.sh install android-skills
 
 # 4. Interactively choose which skills to install
-./skills/skills/scripts/manage_skills.sh select
+./skills/preferred-skills/scripts/manage_skills.sh select
 
 # 5. Re-synchronize symlinks from ~/.agents/skills to all installed agent directories
-./skills/skills/scripts/manage_skills.sh sync
+./skills/preferred-skills/scripts/manage_skills.sh sync
 ```
 
 ## Installation & Symlinking Convention
@@ -51,7 +51,7 @@ Following the standard convention on Derek's machine:
 
 ## Adding New Skills
 
-To add a new skill to the preferred catalog, append an entry to `skills/skills/skills.json`:
+To add a new skill to the preferred catalog, append an entry to `skills/preferred-skills/skills.json`:
 
 ```json
 {

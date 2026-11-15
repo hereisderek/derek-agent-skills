@@ -12,7 +12,7 @@ Modular suite of engineering skills, preferred skills manager, and infrastructur
 | Command / Syntax | Purpose | Skill Location |
 | --- | --- | --- |
 | `/derek-skills:hosts` | Infrastructure directory, SSH aliases & Gist mapping snapshot | [skills/hosts/SKILL.md](skills/hosts/SKILL.md) |
-| `/derek-skills:skills` | Preferred skills catalog & installer (OpenSpec, Android skills, etc.) | [skills/skills/SKILL.md](skills/skills/SKILL.md) |
+| `/derek-skills:preferred-skills` | Preferred skills catalog & installer (OpenSpec, Android skills, etc.) | [skills/preferred-skills/SKILL.md](skills/preferred-skills/SKILL.md) |
 | `/derek-skills:android` | Master Android & Kotlin Multiplatform suite router | [skills/android/SKILL.md](skills/android/SKILL.md) |
 | `/derek-skills:multi-agent-orchestration` | Multi-agent planning, dispatch, validation, or handoff | [skills/multi-agent-orchestration/SKILL.md](skills/multi-agent-orchestration/SKILL.md) |
 | `/derek-skills:interaction-driven-animation` | 1:1 touch/gesture tracking & momentum flings | [skills/interaction-driven-animation/SKILL.md](skills/interaction-driven-animation/SKILL.md) |
