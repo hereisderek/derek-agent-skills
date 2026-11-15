@@ -14,7 +14,8 @@
     "name": "Android CLI (Google)",
     "description": "Official Android CLI for device layout inspection, screenshots, UI testing, and emulator control.",
     "repo": "https://github.com/android/skills",
-    "installType": "script-or-skill",
+    "npm": "npx --yes skills add android/skills -g --skill android-cli -y",
+    "installType": "skills-cli",
     "installCommand": "npx --yes skills add android/skills -g --skill android-cli -y",
     "checkPath": "~/.agents/skills/android-cli",
     "checkCommand": "command -v android"

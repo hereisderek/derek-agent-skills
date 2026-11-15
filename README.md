@@ -62,20 +62,44 @@ Manages and installs Derek's curated skills into `~/.agents/skills/` and symlink
 
 ## Setup & Installation
 
-### 1. Install Suite + All Recommended Skills in One Command (Recommended)
+### Standard Skill Installation via NPM / NPX (`skills` CLI)
+
+Install Derek's entire skill suite directly into `~/.agents/skills/`:
 ```bash
+npx --yes skills add hereisderek/derek-agent-skills -g --full-depth -y
+```
+
+Install recommended preferred skills individually via npm/npx:
+```bash
+# 1. Official Google Android skills suite (adaptive, camerax, compose, navigation-3, etc.)
+npx --yes skills add android/skills -g --full-depth -y
+
+# 2. Android CLI skill only
+npx --yes skills add android/skills -g --skill android-cli -y
+
+# 3. OpenSpec (spec-driven development)
+npm install -g @fission-ai/openspec@latest
+```
+
+---
+
+### Local Repository Setup & Bootstrap (with Submodules)
+
+If cloning the repository locally for development or plugin linking:
+
+```bash
+# Clone with submodules and install all preferred skills in one step:
 git clone --recurse-submodules git@github.com:hereisderek/derek-agent-skills.git
 cd derek-agent-skills
 ./scripts/bootstrap.sh --with-preferred
 ```
-This initializes Git submodules, sets up canonical agent symlinks (`~/.agents/skills/derek-skills`), and installs all curated preferred skills (`openspec`, `android-cli`, and `android-skills`) into your agent environment.
 
-### 2. Standard Setup (Core Suite Only)
+To only set up the core suite without installing external preferred skills:
 ```bash
 ./scripts/bootstrap.sh
 ```
 
-### 3. Installation as a Claude / Agent Plugin
+### Installation as a Claude / Agent Plugin
 
 ```bash
 claude plugin install derek-skills
