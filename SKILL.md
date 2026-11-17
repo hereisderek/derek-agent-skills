@@ -1,9 +1,9 @@
 ---
-name: derek-skills
-description: Overview catalog and on-demand router for Derek's agent skills suite. Triggered by "load derek agent skill", "load derek agent skills", "derek skills", "derek agent skills", or "/derek-skills". Provides a lightweight, token-efficient overview of available skills across workflow, infrastructure, mobile/KMP, animation, and multi-agent orchestration. Instructs agents to display the overview first and load specific sub-skills on demand only when relevant to the task.
+name: derek-agent-skills
+description: Overview catalog and on-demand router for Derek's agent skills suite. Triggered by "load derek agent skill", "load derek agent skills", "derek-agent-skills", "derek skills", "derek agent skills", "/derek-agent-skills", or "/derek-skills". Provides a lightweight, token-efficient overview of available skills across workflow, infrastructure, mobile/KMP, animation, and multi-agent orchestration. Instructs agents to display the overview first and load specific sub-skills on demand only when relevant to the task.
 ---
 
-# Derek's Agent Skills (`/derek-skills`, `load derek agent skill`)
+# Derek's Agent Skills (`derek-agent-skills`, `/derek-agent-skills`, `/derek-skills`, `load derek agent skill`)
 
 Modular suite of engineering skills, infrastructure directories, and preferred tools for AI agents.
 
@@ -11,7 +11,7 @@ Modular suite of engineering skills, infrastructure directories, and preferred t
 
 ## 1. Low-Context / On-Demand Loading Protocol
 
-When invoked via **"load derek agent skill"**, **"load derek agent skills"**, **"derek skills"**, or **`/derek-skills`**:
+When invoked via **"load derek agent skill"**, **"load derek agent skills"**, **"derek-agent-skills"**, **"derek skills"**, **`/derek-agent-skills`**, or **`/derek-skills`**:
 
 1. **Present the Overview**: Display the relevant category or the high-level catalog table below to the user.
 2. **DO NOT Eagerly Ingest Sub-Skills**: Do **not** read or dump all sub-skill `SKILL.md` files into the context window at once. Keep the active context window lean.

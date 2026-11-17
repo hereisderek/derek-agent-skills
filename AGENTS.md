@@ -7,8 +7,8 @@ Operational instructions, conventions, and maintenance guide for AI agents worki
 ## 1. Project Overview
 
 `derek-agent-skills` is Derek's modular repository of reusable agent skills and commands. It is designed to work across multiple agent platforms:
-- **Claude Code**: Loaded as a plugin with namespaced commands (`/derek-skills:<category>`) via `plugin.json` and `commands/`.
-- **Universal Agent Ecosystem** (Antigravity, Codex, Gemini CLI, Agent Kit): Loaded canonically via `~/.agents/skills/derek-skills` pointing to this repository.
+- **Claude Code**: Loaded as a plugin with namespaced commands (`/derek-agent-skills:<category>` / `/derek-skills:<category>`) via `plugin.json` and `commands/`.
+- **Universal Agent Ecosystem** (Antigravity, Codex, Gemini CLI, Agent Kit): Loaded canonically via `~/.agents/skills/derek-agent-skills` (with `derek-skills` backward-compatibility symlink) pointing to this repository.
 
 ---
 
@@ -22,6 +22,7 @@ derek-agent-skills/
 ├── plugin.json                       # Claude plugin declaration
 ├── .claude-plugin/plugin.json        # Duplicate plugin manifest for Claude
 ├── commands/                         # Slash commands for Claude Code
+│   ├── derek-agent-skills.md
 │   ├── derek-skills.md
 │   ├── adaptive-ui-checklist.md
 │   ├── android-design-gallery-and-signing.md

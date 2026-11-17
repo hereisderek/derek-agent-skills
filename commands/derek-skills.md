@@ -1,10 +1,10 @@
 ---
-description: Load Derek's agent skills suite overview and router. Triggered by "load derek agent skill", "load derek agent skills", "derek skills", or /derek-skills.
+description: Load Derek's agent skills suite overview and router (alias for /derek-agent-skills). Triggered by "load derek agent skill", "load derek agent skills", "derek skills", or /derek-skills.
 ---
 
 # /derek-skills (`load derek agent skill`)
 
-Load Derek's agent skills suite router.
+Alias for `/derek-agent-skills`. Load Derek's agent skills suite router.
 
 ## What it does
 
