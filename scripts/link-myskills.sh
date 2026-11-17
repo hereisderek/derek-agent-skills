@@ -63,18 +63,20 @@ for destination in "${DESTINATIONS[@]}"; do
     done
     shopt -u nullglob
 
-    # 2. Link the unified package intact as derek-skills
-    target="$destination/derek-skills"
-    if [[ -L "$target" && "$(readlink "$target")" == "$SOURCE_DIR" ]]; then
-        printf '  exists (intact): %s -> %s\n' "$target" "$SOURCE_DIR"
-    elif [[ -e "$target" && ! -L "$target" ]]; then
-        printf '  conflict (real directory/file, unchanged): %s\n' "$target" >&2
-    elif [[ "$MODE" == "apply" ]]; then
-        ln -sfn "$SOURCE_DIR" "$target"
-        printf '  linked intact: %s -> %s\n' "$target" "$SOURCE_DIR"
-    else
-        printf '  would link intact: %s -> %s\n' "$target" "$SOURCE_DIR"
-    fi
+    # 2. Link the unified package intact as derek-skills and derek-agent-skills
+    for alias_name in "derek-skills" "derek-agent-skills"; do
+        target="$destination/$alias_name"
+        if [[ -L "$target" && "$(readlink "$target")" == "$SOURCE_DIR" ]]; then
+            printf '  exists (intact): %s -> %s\n' "$target" "$SOURCE_DIR"
+        elif [[ -e "$target" && ! -L "$target" ]]; then
+            printf '  conflict (real directory/file, unchanged): %s\n' "$target" >&2
+        elif [[ "$MODE" == "apply" ]]; then
+            ln -sfn "$SOURCE_DIR" "$target"
+            printf '  linked intact: %s -> %s\n' "$target" "$SOURCE_DIR"
+        else
+            printf '  would link intact: %s -> %s\n' "$target" "$SOURCE_DIR"
+        fi
+    done
 done
 
 if [[ "$MODE" == "dry-run" ]]; then
