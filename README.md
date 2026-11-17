@@ -71,10 +71,11 @@ Manages and installs Derek's curated skills into `~/.agents/skills/` and symlink
 
 ### Standard Skill Installation via NPM / NPX (`skills` CLI)
 
-Install Derek's entire skill suite directly into `~/.agents/skills/`:
+Install Derek's skill suite intact into `~/.agents/skills/derek-skills`:
 ```bash
-npx --yes skills add hereisderek/derek-agent-skills -g --full-depth -y
+npx --yes skills add hereisderek/derek-agent-skills -g -y
 ```
+*(Omitting `--full-depth` preserves the package structure intact as a single unified `derek-skills` module rather than splitting sub-skills into separate flat folders).*
 
 Install recommended preferred skills individually via npm/npx:
 ```bash

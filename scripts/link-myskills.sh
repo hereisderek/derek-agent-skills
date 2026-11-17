@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# Link each folder (or the root skill folder) into every installed agent's skill folder.
-# Run without arguments to preview. Pass --apply to create the symlinks.
+# Link the derek-skills package intact into every installed agent's skill folder.
+# Keeps the internal folder structure intact (does not break into flat sub-skills).
+# Run without arguments to preview (dry-run). Pass --apply to create/update symlinks.
 
 set -euo pipefail
 
@@ -24,28 +25,9 @@ case "${1:-}" in
         ;;
 esac
 
-if [[ ! -d "$SOURCE_DIR" ]]; then
-    printf 'Source directory does not exist: %s\n' "$SOURCE_DIR" >&2
+if [[ ! -d "$SOURCE_DIR" || ! -f "$SOURCE_DIR/SKILL.md" ]]; then
+    printf 'Valid skill package root not found at: %s\n' "$SOURCE_DIR" >&2
     exit 1
-fi
-
-shopt -s nullglob
-SKILLS=()
-# If SOURCE_DIR contains SKILL.md, include it as root router
-if [[ -f "$SOURCE_DIR/SKILL.md" ]]; then
-    SKILLS+=("$SOURCE_DIR")
-fi
-# Include individual modular sub-skills from skills/
-if [[ -d "$SOURCE_DIR/skills" ]]; then
-    for candidate in "$SOURCE_DIR"/skills/*/; do
-        candidate="${candidate%/}"
-        [[ -f "$candidate/SKILL.md" ]] && SKILLS+=("$candidate")
-    done
-fi
-
-if (( ${#SKILLS[@]} == 0 )); then
-    printf 'No skill folders found in %s\n' "$SOURCE_DIR"
-    exit 0
 fi
 
 DESTINATIONS=(
@@ -59,31 +41,42 @@ DESTINATIONS=(
 
 for destination in "${DESTINATIONS[@]}"; do
     if [[ ! -d "$destination" ]]; then
-        printf 'Skipping missing agent skill directory: %s\n' "$destination"
         continue
     fi
 
     printf '\n%s\n' "$destination"
-    for source in "${SKILLS[@]}"; do
-        skill_name="${source##*/}"
-        if [[ "$source" == "$SOURCE_DIR" ]]; then
-            skill_name="derek-skills"
-        fi
-        target="$destination/$skill_name"
 
-        if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
-            printf '  exists: %s\n' "$target"
-        elif [[ -e "$target" && ! -L "$target" ]]; then
-            printf '  conflict (real directory/file, unchanged): %s\n' "$target" >&2
-        elif [[ "$MODE" == "apply" ]]; then
-            ln -sfn "$source" "$target"
-            printf '  linked: %s -> %s\n' "$target" "$source"
-        else
-            printf '  would link: %s -> %s\n' "$target" "$source"
+    # 1. Clean up legacy sub-skill symlinks that point into subdirectories or old agent-kit
+    shopt -s nullglob
+    for legacy in "$destination"/*; do
+        if [[ -L "$legacy" ]]; then
+            target="$(readlink "$legacy" 2>/dev/null || true)"
+            if [[ "$target" == "$SOURCE_DIR/skills/"* || "$target" == *"/agent-kit/skills/"* || "$target" == *"/machine-kit-skill/skills/"* ]]; then
+                if [[ "$MODE" == "apply" ]]; then
+                    rm "$legacy"
+                    printf '  removed sub-skill symlink: %s\n' "${legacy##*/}"
+                else
+                    printf '  would remove sub-skill symlink: %s\n' "${legacy##*/}"
+                fi
+            fi
         fi
     done
+    shopt -u nullglob
+
+    # 2. Link the unified package intact as derek-skills
+    target="$destination/derek-skills"
+    if [[ -L "$target" && "$(readlink "$target")" == "$SOURCE_DIR" ]]; then
+        printf '  exists (intact): %s -> %s\n' "$target" "$SOURCE_DIR"
+    elif [[ -e "$target" && ! -L "$target" ]]; then
+        printf '  conflict (real directory/file, unchanged): %s\n' "$target" >&2
+    elif [[ "$MODE" == "apply" ]]; then
+        ln -sfn "$SOURCE_DIR" "$target"
+        printf '  linked intact: %s -> %s\n' "$target" "$SOURCE_DIR"
+    else
+        printf '  would link intact: %s -> %s\n' "$target" "$SOURCE_DIR"
+    fi
 done
 
 if [[ "$MODE" == "dry-run" ]]; then
-    printf '\nDry run only. Re-run with --apply to create symlinks.\n'
+    printf '\nDry run only. Re-run with --apply to apply changes.\n'
 fi
