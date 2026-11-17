@@ -34,11 +34,7 @@ When invoked via **"load derek agent skill"**, **"load derek agent skills"**, **
 | **Mobile & KMP** | `/derek-skills:android-design-gallery-and-signing` | Material 3 component catalog and release keystore signing safety | [`skills/android-design-gallery-and-signing/SKILL.md`](skills/android-design-gallery-and-signing/SKILL.md) |
 | **Animation** | `/derek-skills:interaction-driven-animation` | 1:1 gesture tracking, physics springs, and momentum flings | [`skills/interaction-driven-animation/SKILL.md`](skills/interaction-driven-animation/SKILL.md) |
 | **Architecture** | `/derek-skills:pl-coding-skills-bundle` | Philipp Lackner 21-skill architecture bundle (Compose, MVI, Koin, navigation, error handling, testing) | [`skills/PL Coding Skills Bundle/SKILL.md`](skills/PL%20Coding%20Skills%20Bundle/SKILL.md) |
-| **Infrastructure** | `/derek-skills:hosts` | Infrastructure host connection directory, SSH aliases, and live Proxmox/Oracle mapping | [`skills/hosts/SKILL.md`](skills/hosts/SKILL.md) |
 | **Infrastructure** | `/derek-skills:docker-hosts` | Execute Docker/Podman workloads on container LXCs (`docker-lxc` 2028, `podman-lxc` 2029), portbridge, and Caddy reverse proxy | [`skills/docker-hosts/SKILL.md`](skills/docker-hosts/SKILL.md) |
-
-> **Live Infrastructure Snapshot (Gist):**  
-> 🔗 [https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3](https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3)
 
 ---
 

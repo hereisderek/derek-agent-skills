@@ -11,7 +11,6 @@ Built to be loadable either as an individual skill, full bundle, or as a plugin 
 
 | Syntax | Description | Location |
 | --- | --- | --- |
-| `/derek-agent-skills:hosts` | Infrastructure directory, SSH aliases & live Gist snapshot | `skills/hosts/` |
 | `/derek-agent-skills:docker-hosts` | Docker/Podman runtime on LXCs 2028/2029, portbridge, and Caddy proxy | `skills/docker-hosts/` |
 | `/derek-agent-skills:worktree-workflow` | Feature development lifecycle with Worktrunk (`wt`) and branch isolation | `skills/worktree-workflow/` |
 | `/derek-agent-skills:release-cicd` | Semantic release policies, tag formatting, and CI/CD rules | `skills/release-cicd/` |
@@ -24,15 +23,6 @@ Built to be loadable either as an individual skill, full bundle, or as a plugin 
 | `/derek-agent-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | `skills/android-design-gallery-and-signing/` |
 | `/derek-agent-skills:interaction-driven-animation` | 1:1 gesture tracking & momentum flings | `skills/interaction-driven-animation/` |
 | `/derek-agent-skills:pl-coding-skills-bundle` | Philipp Lackner Android & KMP architecture and coding bundle | `skills/PL Coding Skills Bundle/` |
-
----
-
-## Infrastructure Host Directory (`/derek-skills:hosts`)
-
-Contains direct connection details, SSH aliases (`.lab`, `.lab.proxy`, `.oracle.proxy`), IP mappings, and ports for all machines across Home Proxmox VE and Oracle Cloud.
-
-> **Live Infrastructure Snapshot (Gist):**  
-> 🔗 [https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3](https://gist.github.com/hereisderek/9d10d746711c34f3b20c1a07282237f3)
 
 ---
 

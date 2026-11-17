@@ -27,7 +27,6 @@ derek-agent-skills/
 │   ├── adaptive-ui-checklist.md
 │   ├── android-design-gallery-and-signing.md
 │   ├── android.md
-│   ├── hosts.md
 │   ├── interaction-driven-animation.md
 │   ├── multi-agent-orchestration.md
 │   ├── pl-coding-skills-bundle.md
@@ -37,7 +36,6 @@ derek-agent-skills/
 │   ├── adaptive-ui-checklist/
 │   ├── android/
 │   ├── android-design-gallery-and-signing/
-│   ├── hosts/
 │   ├── interaction-driven-animation/
 │   ├── multi-agent-orchestration/
 │   ├── PL Coding Skills Bundle/      # Git submodule -> hereisderek/pl-coding-skills-bundle
