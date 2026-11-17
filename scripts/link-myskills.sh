@@ -35,6 +35,7 @@ DESTINATIONS=(
     "$HOME/.claude/skills"
     "$HOME/.codex/skills"
     "$HOME/.gemini/skills"
+    "$HOME/.gemini/config/skills"
     "$HOME/.config/opencode/skills"
     "$HOME/.pi/agent/skills"
 )
