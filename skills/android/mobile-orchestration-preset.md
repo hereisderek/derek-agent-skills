@@ -22,8 +22,15 @@ VALIDATION_SMOKE_CMD="adb -s \"\${TEST_DEVICE:-\$ANDROID_SERIAL}\" install -r <p
 POST_MERGE_CLEANUP_CMD="cd mobile && ./gradlew --stop"
 
 # 5. Device Lock Release Command (if using shared hardware pool)
-VALIDATION_LOCK_RELEASE_CMD="bash \"\$SKILL_ROOT/state-droid-remote-device/scripts/device-pool.sh\" release --owner \"<validation-worker>\""
+VALIDATION_LOCK_RELEASE_CMD="bash \"\${SKILL_ROOT:-\$HOME/.agents/skills}/state-droid-remote-device/scripts/device-pool.sh\" release --owner \"<validation-worker>\""
 ```
+
+---
+
+## Host Specifics
+
+- **Mac (`mac.md`)**: Local Android SDK, USB/wireless ADB, shared debug keystore at `~/.android/debug.keystore`, lockfile at `/tmp/dtm-gradle.lock`.
+- **Agent LXC (`agent-lxc.md`)**: Headless Debian 13, StageDroid Smart ADB proxy on `172.16.2.26:50370`, remote hardware testing via Tailscale.
 
 ---
 

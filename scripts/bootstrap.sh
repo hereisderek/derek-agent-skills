@@ -38,17 +38,9 @@ echo "--> Initializing and updating Git submodules..."
 git -C "$REPO_ROOT" submodule update --init --recursive
 echo "✓ Submodules up-to-date."
 
-# 2. Setup ~/.agents/skills/derek-skills symlink
-AGENTS_SKILLS_DIR="$HOME/.agents/skills"
-mkdir -p "$AGENTS_SKILLS_DIR"
-
-TARGET_LINK="$AGENTS_SKILLS_DIR/derek-skills"
-if [[ -L "$TARGET_LINK" && "$(readlink "$TARGET_LINK")" == "$REPO_ROOT" ]]; then
-    echo "✓ Canonical symlink already exists: $TARGET_LINK -> $REPO_ROOT"
-else
-    ln -sfn "$REPO_ROOT" "$TARGET_LINK"
-    echo "✓ Created/updated canonical symlink: $TARGET_LINK -> $REPO_ROOT"
-fi
+# 2. Setup ~/.agents/skills symlinks for derek-skills and all modular sub-skills
+echo "--> Configuring agent skill symlinks..."
+"${SCRIPT_DIR}/link-myskills.sh" --apply
 
 # 3. Optional: Ensure ~/agents compatibility symlink if ~/.agents exists
 if [[ -d "$HOME/.agents" && ! -e "$HOME/agents" && ! -L "$HOME/agents" ]]; then

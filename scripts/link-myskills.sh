@@ -31,11 +31,13 @@ fi
 
 shopt -s nullglob
 SKILLS=()
-# If SOURCE_DIR itself contains SKILL.md (router layout), link SOURCE_DIR; also support sub-skill folders
+# If SOURCE_DIR contains SKILL.md, include it as root router
 if [[ -f "$SOURCE_DIR/SKILL.md" ]]; then
     SKILLS+=("$SOURCE_DIR")
-else
-    for candidate in "$SOURCE_DIR"/*/; do
+fi
+# Include individual modular sub-skills from skills/
+if [[ -d "$SOURCE_DIR/skills" ]]; then
+    for candidate in "$SOURCE_DIR"/skills/*/; do
         candidate="${candidate%/}"
         [[ -f "$candidate/SKILL.md" ]] && SKILLS+=("$candidate")
     done
@@ -63,14 +65,18 @@ for destination in "${DESTINATIONS[@]}"; do
 
     printf '\n%s\n' "$destination"
     for source in "${SKILLS[@]}"; do
-        target="$destination/${source##*/}"
+        skill_name="${source##*/}"
+        if [[ "$source" == "$SOURCE_DIR" ]]; then
+            skill_name="derek-skills"
+        fi
+        target="$destination/$skill_name"
 
         if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
             printf '  exists: %s\n' "$target"
-        elif [[ -e "$target" || -L "$target" ]]; then
-            printf '  conflict (unchanged): %s\n' "$target" >&2
+        elif [[ -e "$target" && ! -L "$target" ]]; then
+            printf '  conflict (real directory/file, unchanged): %s\n' "$target" >&2
         elif [[ "$MODE" == "apply" ]]; then
-            ln -s "$source" "$target"
+            ln -sfn "$source" "$target"
             printf '  linked: %s -> %s\n' "$target" "$source"
         else
             printf '  would link: %s -> %s\n' "$target" "$source"

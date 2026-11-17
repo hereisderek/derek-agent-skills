@@ -12,12 +12,17 @@ Built to be loadable either as an individual skill, full bundle, or as a plugin 
 | Syntax | Description | Location |
 | --- | --- | --- |
 | `/derek-skills:hosts` | Infrastructure directory, SSH aliases & live Gist snapshot | `skills/hosts/` |
+| `/derek-skills:docker-hosts` | Docker/Podman runtime on LXCs 2028/2029, portbridge, and Caddy proxy | `skills/docker-hosts/` |
+| `/derek-skills:worktree-workflow` | Feature development lifecycle with Worktrunk (`wt`) and branch isolation | `skills/worktree-workflow/` |
+| `/derek-skills:release-cicd` | Semantic release policies, tag formatting, and CI/CD rules | `skills/release-cicd/` |
+| `/derek-skills:markdown-converter` | Document conversion to Markdown via Microsoft `markitdown` | `skills/markdown-converter/` |
 | `/derek-skills:preferred-skills` | Preferred skills catalog and installer | `skills/preferred-skills/` |
-| `/derek-skills:android` | Android & KMP master development suite | `skills/android/` |
-| `/derek-skills:multi-agent-orchestration` | Multi-agent coordination, preambles & delegation | `skills/multi-agent-orchestration/` |
-| `/derek-skills:interaction-driven-animation` | 1:1 gesture tracking & momentum flings | `skills/interaction-driven-animation/` |
-| `/derek-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | `skills/android-design-gallery-and-signing/` |
+| `/derek-skills:multi-agent-orchestration` | Multi-agent coordination, preambles, Gradle locks & delegation | `skills/multi-agent-orchestration/` |
+| `/derek-skills:state-droid-remote-device` | StageDroid device leasing, wake/unlock, and UI auditing | `skills/state-droid-remote-device/` |
+| `/derek-skills:android` | Android & KMP master development suite and verification hooks | `skills/android/` |
 | `/derek-skills:adaptive-ui-checklist` | Window size classes, foldables, and adaptive layouts | `skills/adaptive-ui-checklist/` |
+| `/derek-skills:android-design-gallery-and-signing` | Material 3 component gallery & keystore safety | `skills/android-design-gallery-and-signing/` |
+| `/derek-skills:interaction-driven-animation` | 1:1 gesture tracking & momentum flings | `skills/interaction-driven-animation/` |
 | `/derek-skills:pl-coding-skills-bundle` | Philipp Lackner Android & KMP architecture and coding bundle | `skills/PL Coding Skills Bundle/` |
 
 ---

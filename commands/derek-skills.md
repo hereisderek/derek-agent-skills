@@ -1,27 +1,20 @@
 ---
-description: Derek's agent skills suite router. Inspects the project and suggests or updates relevant skills.
+description: Load Derek's agent skills suite overview and router. Triggered by "load derek agent skill", "load derek agent skills", "derek skills", or /derek-skills.
 ---
 
-# /derek-skills
+# /derek-skills (`load derek agent skill`)
 
 Load Derek's agent skills suite router.
 
 ## What it does
 
-1. **Inspects Project Context**:
+1. **Presents a Token-Efficient Overview**:
+   - Shows a structured table of all available engineering, infrastructure, workflow, and architecture skills without flooding the context window.
+2. **On-Demand Loading Discipline**:
+   - Instructs the agent to load only the specific sub-skill needed for the current task.
+3. **Inspects Project Context**:
    - Detects Android/KMP workspaces (Gradle, AndroidManifest) or Web/TypeScript workspaces (package.json, tsconfig).
-2. **Proactively Recommends Skills**:
-   - Suggests installing or updating `android-cli` and official `android/skills` for Android projects.
-   - Suggests installing or updating `openspec` for spec-driven web projects.
-3. **Provides Sub-Skill Routing**:
-   - `/derek-skills:hosts`
-   - `/derek-skills:preferred-skills`
-   - `/derek-skills:android`
-   - `/derek-skills:multi-agent-orchestration`
-   - `/derek-skills:interaction-driven-animation`
-   - `/derek-skills:android-design-gallery-and-signing`
-   - `/derek-skills:adaptive-ui-checklist`
-   - `/derek-skills:pl-coding-skills-bundle`
+   - Proactively suggests installing or updating `android-cli`, `android/skills`, or `openspec`.
 
 ## Reference Skill
 
